@@ -7,3 +7,17 @@ body {
 p {
   font-size : 20px;
 }
+a {
+  color : #ffff00;
+  text-decoration-line : underline;
+}
+a:visited {
+  color : #ffaa00;
+}
+a:hover {
+  color : #ffffff;
+  font-weight : bold;
+}
+a:active {
+  color : #bbbbbb;
+}
