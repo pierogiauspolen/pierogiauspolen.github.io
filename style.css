@@ -21,3 +21,8 @@ a:hover {
 a:active {
   color : #bbbbbb;
 }
+svg {
+  stroke:white;
+  fill:none;
+  stroke-width:3;
+}
