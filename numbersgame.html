@@ -76,6 +76,8 @@
   </div>
   <div style="top:300px;left:20%;right:50%;">
     <p>How many big ones?</p>
+    <input type="radio" name="big" id="big0" value="0" />
+    <label for="big1">0</label>
     <input type="radio" name="big" id="big1" value="1" />
     <label for="big1">1</label>
     <input type="radio" name="big" id="big2" value="2" />
@@ -84,6 +86,8 @@
     <label for="big3">3</label>
     <input type="radio" name="big" id="big4" value="4" />
     <label for="big4">4</label>
+    <input type="radio" name="big" id="bigr" value="Math.floor(Math.random()*1000)%5" />
+    <label for="big1">Random</label>
     <br>
     <button type="button" onclick="generate();">GENERATE</button>
   </div>
