@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <title>COUNTDOWN NUMBERS</title>
+  <style>
+    body {
+      text-align : center;
+      background-color : #101010;
+      font-family : Arial;
+      color : #ffffff;
+    }
+    h1 {
+      font-size : 7;
+    }
+    div {
+      position:fixed;
+    }
+    .num {
+      top:100px;
+      border : 5px outset #FFFFFF;
+      background-color : blue;
+    }
+    .rand {
+      border: 2px solid #FFFFFF;
+      background-color: #000000;
+      top: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>&nbsp;COUNTDOWN</h1>
+  <div class="num" style="
+    right:72%;
+    left:18%;">
+      <h1 id="num1">&nbsp;</h1>
+  </div>
+  <div class="num" style="
+    right:61%;
+    left:29%;">
+      <h1 id="num2">&nbsp;</h1>
+  </div>
+  <div class="num" style="
+    right:50%;
+    left:40%;">
+      <h1 id="num3">&nbsp;</h1>
+  </div>
+  <div class="num" style="
+    right:39%;
+    left:51%;">
+      <h1 id="num4">&nbsp;</h1>
+  </div>
+  <div class="num" style="
+    right:28%;
+    left:62%;">
+      <h1 id="num5">&nbsp;</h1>
+  </div>
+  <div class="num" style="
+    right:17%;
+    left:73%;">
+      <h1 id="num6">&nbsp;</h1>
+  </div>
+  <div class="rand" style="
+    left: 42%;
+    right: 53%;">
+      <h1 id="rand1">&nbsp;</h1>
+  </div>
+  <div class="rand" style="
+    left: 48%;
+    right: 47%;">
+      <h1 id="rand2">&nbsp;</h1>
+  </div>
+  <div class="rand" style="
+    left: 54%;
+    right: 41%;">
+      <h1 id="rand3">&nbsp;</h1>
+  </div>
+  <div style="top:300px;left:20%;right:50%;">
+    <p>How many big ones?</p>
+    <input type="radio" name="big" id="big1" value="1" />
+    <label for="big1">1</label>
+    <input type="radio" name="big" id="big2" value="2" />
+    <label for="big2">2</label>
+    <input type="radio" name="big" id="big3" value="3" />
+    <label for="big3">3</label>
+    <input type="radio" name="big" id="big4" value="4" />
+    <label for="big4">4</label>
+    <br>
+    <button type="button" onclick="generate();">GENERATE</button>
+  </div>
+<script src="numbers.js"></script>
+</body>
