@@ -35,10 +35,13 @@ function randsubsetlen(L,len){
 }
 
 let bx = [
+  document.getElementById('big0'),
   document.getElementById('big1'),
   document.getElementById('big2'),
   document.getElementById('big3'),
-  document.getElementById('big4')]
+  document.getElementById('big4'),
+  document.getElementById('bigr')
+]
 
 let sx = [
   document.getElementById("num1"),
@@ -58,7 +61,7 @@ let tx = [
 var aob
 
 function generate(){
-  for (var i=0;i<4;i++){
+  for (var i=0;i<6;i++){
     if (bx[i].checked){
       aob = parseInt(bx[i].value)
       break
