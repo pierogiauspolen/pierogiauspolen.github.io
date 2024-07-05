@@ -68,6 +68,10 @@ function generate(){
     }
   }
   console.log(aob)
+  if (aob == 5) {
+    aob = Math.floor(Math.random()*5)
+    console.log(aob)
+  }
   let A = randsubsetlen(B,aob)
   console.log(A)
   for (var i=0;i<aob;i++){
