@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>COUNTDOWN LETTERS</title>
+    <style>
+      body {
+        text-align : center;
+        background-color : #101010;
+        font-family : Arial;
+        color : #ffffff;
+      }
+      h1 {
+        font-size : 7;
+      }
+      div {
+        position:fixed;
+      }
+      .letters{
+        border : 5px outset #FFFFFF;
+        background-color : blue;
+      }
+      button {
+        position: fixed;
+      }
+      .Lbutton {
+        top: 200px;
+        height : 150px;
+        font-size : 400%;
+        background-color : blue;
+        color : white;
+        font-weight : bold;
+        border : 5px outset #FFFFFF;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>COUNTDOWN</h1>
+    <div id="lettersdiv" style="top: 100px; bottom:(100%-200px);"></div>
+    <button style="left:10%; right:55%;" onclick="V();" class="Lbutton">VOWEL</button>
+    <button style="left:55%; right:10%;" onclick="C();" class="Lbutton">CONSONANT</button>
+    <div id="timer" style="font-size : 90px; top: 400px; left: 40%; right: 40%; font-weight : bold; border : 5px outset #FFFFFF; height: 100px;">30</div>
+    <button style="top: 520px; left:40%; right:40%;" onclick="CTDWN();">COUNTDOWN</button>
+    <script src="letters.js"></script>
+  </body>
+</html>
