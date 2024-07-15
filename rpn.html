@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reverse Polish Notation Calculator</title>
+  <link rel="icon" href="https://th.bing.com/th/id/R.7e58c24eca74a34cb91d528b06b53577?rik=AHQPINPfMOekTA&pid=ImgRaw&r=0" type="image/x-icon" />
+  <style>
+    body {
+      background-color: #101010;
+      text-align: center;
+    }
+    h1 {
+      color: #FFFFFF;
+      font-family: Arial;
+      size: 7;
+    }
+    h2 {
+      color: #FFFFFF;
+      font-family: Arial;
+      size: 6;
+      text-align: center;
+    }
+    p {
+      color: #FFFFFF;
+      font-family: Arial;
+      size: 4;
+    }
+    .div1 {
+      border: 5px outset white;
+      background-color: #222222;
+      text-align: right;
+    }
+    button {
+      background-color: #00CC99;
+      width: 60px;
+      font-size: 50px;
+      border: 3px outset white;
+      color: #FFFFFF;
+      display: grid;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <div> <!--The introduction-->
+    <h1>Reverse Polish notation calculator!</h1>
+    <p>If you don't know what the reverse Polish notation is, <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">click here</a>.</p>
+    <p>SHOWING EXPRESSION DOESN'T WORK AFTER BACKSPACE UNTIL CLEAR IS PRESSED!</p>
+  </div>
+  <br>
+  <div id="EXPR" class="div1">
+    <h2>YOUR EXPRESSION:</h2>
+    <p id="expr" style="text-align: center;"></p>
+  </div>
+  <br>
+  <!--The first line-->
+  <div class="div1" id="div1" style="
+    position:fixed;
+    left:30px;
+    right:350px;">
+    <h1 id="l1">&nbsp;&nbsp;</h1><hr id="hr1">
+  </div>
+  
+  <div id="div2" class="div1" style="
+    position:fixed;
+    left:100%-200px;
+    right:10px;">
+    
+    <h2>BUTTONS</h2><hr>
+      <div style="display:grid;gap: 10px;">
+      <button 
+        id="+"
+        style="
+          background-color: #00BBAA;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end: 2;"
+        onclick="add()">+
+      </button>
+      <button 
+        id="-"
+        style="
+          background-color: #00BBAA;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 2;
+          grid-column-end: 3;"
+        onclick="subt()">-
+      </button>
+      <button 
+        id="x"
+        style="
+          background-color: #00BBAA;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 3;
+          grid-column-end: 4;"
+        onclick="prod()">x
+      </button>
+      <button 
+        id="/"
+        style="
+          background-color: #00BBAA;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 4;
+          grid-column-end: 5;"
+        onclick="div()">/
+      </button>
+      <button 
+        id="^"
+        style="
+          background-color: #00BBAA;
+          grid-row-start: 2;
+          grid-row-end: 3;
+          grid-column-start: 1;
+          grid-column-end: 2;"
+        onclick="power()">^
+      </button>
+      <button
+        id="9"
+        onclick="writenum(9)"
+        style="
+          grid-row-start: 2;
+          grid-row-end: 3;
+          grid-column-start: 2;
+          grid-column-end: 3;
+        ">9
+      </button>
+      <button
+        id="8"
+        onclick="writenum(8)"
+        style="
+          grid-row-start: 2;
+          grid-row-end: 3;
+          grid-column-start: 3;
+          grid-column-end: 4;
+        ">8
+      </button>
+      <button
+        id="7"
+        onclick="writenum(7)"
+        style="
+          grid-row-start: 2;
+          grid-row-end: 3;
+          grid-column-start: 4;
+          grid-column-end: 5;
+        ">7
+      </button>
+      <button
+        id="6"
+        onclick="writenum(6)"
+        style="
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 1;
+          grid-column-end: 2;
+        ">6
+      </button>
+      <button
+        id="5"
+        onclick="writenum(5)"
+        style="
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 2;
+          grid-column-end: 3;
+        ">5
+      </button>
+      <button
+        id="4"
+        onclick="writenum(4)"
+        style="
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 3;
+          grid-column-end: 4;
+        ">4
+      </button>
+      <button
+        id="3"
+        onclick="writenum(3)"
+        style="
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 4;
+          grid-column-end: 5;
+        ">3
+      </button>
+      <button
+        id="2"
+        onclick="writenum(2)"
+        style="
+          grid-row-start: 4;
+          grid-row-end: 5;
+          grid-column-start: 1;
+          grid-column-end: 2;
+        ">2
+      </button>
+      <button
+        id="1"
+        onclick="writenum(1)"
+        style="
+          grid-row-start: 4;
+          grid-row-end: 5;
+          grid-column-start: 2;
+          grid-column-end: 3;
+        ">1
+      </button>
+      <button
+        id="0"
+        onclick="writenum(0)"
+        style="
+          grid-row-start: 4;
+          grid-row-end: 5;
+          grid-column-start: 3;
+          grid-column-end: 4;
+        ">0
+      </button>
+      <button
+        id="E"
+        onclick="nextline()"
+        style="
+          background-color: #FF7777;
+          grid-row-start: 4;
+          grid-row-end: 5;
+          grid-column-start: 4;
+          grid-column-end: 5;
+        ">&#x21B2;
+      </button>
+      <button
+        id="BSP"
+        onclick="backspace()"
+        style="
+          background-color: #FF7777;
+          grid-row-start: 5;
+          grid-row-end: 6;
+          grid-column-start: 1;
+          grid-column-end: 2;
+        ">&leftarrow;
+      </button>
+      <button
+        id="EXP"
+        onclick="giveexpr()"
+        style="
+          background-color: #FF7777;
+          grid-row-start: 5;
+          grid-row-end: 6;
+          grid-column-start: 2;
+          grid-column-end: 3;
+        ">E
+      </button>
+      <button
+        id="AC"
+        onclick="clearnums()"
+        style="
+          background-color: #FF7777;
+          grid-row-start: 5;
+          grid-row-end: 6;
+          grid-column-start: 3;
+          grid-column-end: 4;
+        ">C
+      </button>
+    </div>
+  </div>
+  </div>
+<script src="rpn.js"></script>
+</body>
+</html>
