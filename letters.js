@@ -63,10 +63,7 @@ function V(){ //called when vowel button
       break
     }
   }
-  inc++
-  if (inc==9) {
-    CTDWN();
-  }
+  inc++;
 }
 
 function C(){ //called when consonant button
@@ -77,8 +74,5 @@ function C(){ //called when consonant button
       break
     }
   }
-  inc++
-  if (inc==9) {
-    CTDWN();
-  }
+  inc++;
 }
