@@ -1,3 +1,25 @@
+timer = document.getElementById("timer");
+
+const audio = new Audio('clockaudio.mp3');
+
+function CTDWN(){
+  var t = 30; //HOW LONG TO COUNT
+  audio.play();
+  function step(){
+    t--;
+    console.log("reduced!")
+    if (t == 5){
+      
+    }
+    timer.innerHTML = String(t);
+    console.log("replaced/ing " + timer.innerHTML +" with " + String(t))
+    timer.innerHTML = String(t);
+    if (t==0) {clearInterval(ch); return 0;}
+  }
+  console.log("DONE WITH defining step()")
+  ch = setInterval(step,1000);
+}
+
 let B = [25,50,75,100]
 //let S = [1,2,3,4,5,6,7,8,9,10]
 
