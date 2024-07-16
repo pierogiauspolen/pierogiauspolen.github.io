@@ -7,9 +7,10 @@
     <style>
       div {
         border : 5px outset white;
+        overflow : auto;
       }
       .links {
-        right : 40%;
+        right : 0%;
         left : 0%;
       }
       .aboutme {
@@ -20,18 +21,20 @@
   <body>
     <a id="link">&nbsp;</a>
     <hr>
-    <div class="links" style="top: 50px; height: 100px;">
-      <h3>COUNTDOWN Numbers game</h3>
-      <button onclick="link = document.getElementById('link'); link.innerHTML = 'Continue/Kontynuuj'; link.href = 'numbersgame.html';">PRESS/WCIŚNIJ</button>
-    </div>
-    <div class="links" style="top: 150px; height: 100px;">
-      <h3>COUNTDOWN Letters game</h3>
-      <button onclick="link = document.getElementById('link'); link.innerHTML = 'Continue/Kontynuuj'; link.href = 'lettersgame.html';">PRESS/WCIŚNIJ</button>
-    </div>
-    <div class="links" style="top: 250px; height: 150px;">
-      <h3>RPN calculator (explanation there)</h3>
-      <h3>Kalkulator RPN (wyjaśnienie tam)</h3>
-      <button onclick="link = document.getElementById('link'); link.innerHTML = 'Continue/Kontynuuj'; link.href = 'rpn.html';">PRESS/WCIŚNIJ</button>
+    <div style="left: 0%; right:40%;">
+      <div class="links" style="top: 50px; height: 100px;">
+        <h3>COUNTDOWN Numbers game</h3>
+        <button onclick="link = document.getElementById('link'); link.innerHTML = 'Continue/Kontynuuj'; link.href = 'numbersgame.html';">PRESS/WCIŚNIJ</button>
+      </div>
+      <div class="links" style="top: 150px; height: 100px;">
+        <h3>COUNTDOWN Letters game</h3>
+        <button onclick="link = document.getElementById('link'); link.innerHTML = 'Continue/Kontynuuj'; link.href = 'lettersgame.html';">PRESS/WCIŚNIJ</button>
+      </div>
+      <div class="links" style="top: 250px; height: 150px;">
+        <h3>RPN calculator (explanation there)</h3>
+        <h3>Kalkulator RPN (wyjaśnienie tam)</h3>
+        <button onclick="link = document.getElementById('link'); link.innerHTML = 'Continue/Kontynuuj'; link.href = 'rpn.html';">PRESS/WCIŚNIJ</button>
+      </div>
     </div>
     <div class="aboutme">
       <img src="zdj/logo.png" style="width: 100%;"> <hr>
