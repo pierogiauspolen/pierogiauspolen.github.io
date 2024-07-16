@@ -32,4 +32,5 @@ svg {
 div {
   position : fixed;
   overflow : auto;
+  bottom : 0%;
 }
