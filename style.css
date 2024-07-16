@@ -30,6 +30,6 @@ svg {
   stroke-width:3;
 }
 div {
-  position : fixed;
+  position : absolute;
   overflow : auto;
 }
