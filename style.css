@@ -3,6 +3,9 @@ body {
   background-color : #101010;
   color : #ffffff;
   font-family : Arial;
+  top : 0%;
+  bottom : 0%;
+  overflow : auto;
 }
 p {
   font-size : 20px;
