@@ -26,3 +26,6 @@ svg {
   fill:none;
   stroke-width:3;
 }
+div {
+  position : fixed;
+}
