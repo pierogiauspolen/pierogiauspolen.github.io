@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style src="style.css"></style>
+  <title>
+    Pendulum
+  </title>
+</head>
+<body style="font-size:20px;">
+  <div style="position:absolute;right:50%;">
+    <h1>PENDULUM</h1>
+    <canvas id="canva" style="border : 1px solid black; position:relative;right:20px; background-color : white;"></canvas>
+  </div>
+  <div style="position:absolute;left:60%;top:10%;">
+    <label for="angle">Angle</label>
+    <input type="range" name="angle" id="angle" min="-180" max="180" step="1" value="0">
+    <p id="angleval">0&deg;</p>
+  </div>
+  <div style="position:absolute;left:60%;top:30%;">
+    <label for="initv">Initial angular velocity</label>
+    <input type="range" name="initv" id="initv" min="-10" max="10" step="0.1" value="0">
+    <p id="initvval">0</p>
+  </div>
+  <div style="position:absolute;left:60%;top:50%;">
+    <label for="gravity">Gravity</label>
+    <input type="range" name="gravity" id="gravity" min="0" max="0.3" step="0.001" value="0.1">
+    <p id="gravval">1</p>
+  </div>
+  <div style="position:absolute;left:60%;top:70%;">
+    <label for="airres">Air resistance</label>
+    <input type="range" name="airres" id="airres" min="0" max="0.01" step="0.0001" value="0.0001">
+    <p id="resval">0</p> 
+  </div>
+  <script src="pendulum.js"></script>
+  <button style="position:absolute;left:60%;top:90%;" onclick="clic();">START ANIMATION</button>
+</body>
+</html>
