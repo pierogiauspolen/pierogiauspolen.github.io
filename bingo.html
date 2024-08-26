@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bingo!</title>
+  <style>
+    body {
+      background-color : #101010;
+      color : #FFFFFF;
+      font-family : Arial;
+      font-size : 30px;
+      text-align : center;
+    }
+    div {
+      position : absolute;
+      right : 10%;
+      width : 150px;
+      height : 150px;
+      border : 2px outset white;
+      top : 20%;
+      vertical-align: middle;
+      line-height: 150px;
+      font-weight : bold;
+      font-size : 90px;
+      background-color : navy;
+    }
+    tr {
+      height : 100px;
+    }
+    td {
+      width : 100px;
+      border : 2px outset white;
+    }
+    p {
+      font-size : 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="lastN">&nbsp;</div>
+  <label for="name" style="font-size : 20px;">Insert your name: </label><input name="name" id="name" style="margin : 5px;">
+  <button id="bingo!" onclick="Bingo();" style="
+      position : absolute;
+      right : 10%;
+      width : 100px;
+      height : 40px;
+      border : 2px outset white;
+      background-color : navy;
+      top : 50%;
+      color : #FFFFFF;
+      font-size : 20px;
+      font-family : 'Comic Sans';
+  ">Bingo!</button>
+  <p id="logN" style="
+      position : absolute;
+      right : 30%;
+      left : 570px;
+      top : 70%;
+  ">Numbers so far:</p>
+  <p id="logB" style="
+      position : absolute;
+      right : 10%;
+      width : 20%;
+      top : 70%;
+      font-size : 10px;
+  ">Bingos so far:</p>
+<script src="/socket.io/socket.io.js"></script>
+  <script>
+    socket = io();
+    
+    x = [[['','','','',''],''],[['','','','',''],''],[['','','','',''],''],[['','','','',''],''],[['','','','',''],'']]
+    
+    board = document.createElement('table')
+    lastN = document.getElementById('lastN')
+    nBeenAlready = ['FREE']
+    name = document.getElementById('name')
+    
+    logN = document.getElementById('logN')
+    logB = document.getElementById('logB')
+    
+    function IN(r,A){
+      for (var i=0;i<A.length;i++){
+        if (A[i]==r) {return true;}
+      }
+      return false;
+    }
+    
+    for (var i=0;i<5;i++){
+      x[i][1] = document.createElement("tr")
+      board.appendChild(x[i][1])
+      var ROW = []
+      for (var j=0;j<5;j++){
+        x[i][0][j] = document.createElement("td")
+        var r = Math.floor(15*(Math.random()+i)+1)
+        while (IN(r,ROW)){
+          r = Math.floor(15*(Math.random()+i)+1)
+        } 
+        x[i][0][j].innerHTML = String(r)
+        ROW.push(r)
+        x[i][0][j].id = String(5*i + j)
+        x[i][0][j].setAttribute( "onClick", "if (document.getElementById('"+String(5*i+j)+"').style.background == 'rgb(255, 0, 0)'){document.getElementById('"+String(5*i+j)+"').style.background = '#101010'} else {document.getElementById('"+String(5*i+j)+"').style.background = '#FF0000'}");
+        x[i][1].appendChild(x[i][0][j])
+      }
+    }
+    x[2][0][2].innerHTML = "FREE"
+    document.body.appendChild(board)
+    
+    function CheckBingo(){
+      for (var i=0;i<5;i++){
+        if (IN(x[i][0][0].innerHTML,nBeenAlready) && IN(x[i][0][1].innerHTML,nBeenAlready) && IN(x[i][0][2].innerHTML,nBeenAlready) && IN(x[i][0][3].innerHTML,nBeenAlready) && IN(x[i][0][4].innerHTML,nBeenAlready)){
+          return [true,[false,false,i]]; //(false,false) means horizontal
+        }
+        if (IN(x[0][0][i].innerHTML,nBeenAlready) && IN(x[1][0][i].innerHTML,nBeenAlready) && IN(x[2][0][i].innerHTML,nBeenAlready) && IN(x[3][0][i].innerHTML,nBeenAlready) && IN(x[4][0][i].innerHTML,nBeenAlready)){
+          return [true,[false,true,i]]; //1 means vertical
+        }
+      }
+      if (IN(x[0][0][0].innerHTML,nBeenAlready) && IN(x[1][0][1].innerHTML,nBeenAlready) && IN(x[3][0][3].innerHTML,nBeenAlready) && IN(x[4][0][4].innerHTML,nBeenAlready)){
+        return [true,[true,false]]; //2 means diagonal \
+      }
+      if (IN(x[0][0][4].innerHTML,nBeenAlready) && IN(x[1][0][3].innerHTML,nBeenAlready) && IN(x[3][0][1].innerHTML,nBeenAlready) && IN(x[4][0][0].innerHTML,nBeenAlready)){
+        return [true,[true,true]]; //3 means diagonal /
+      }
+      return [false]
+    }
+    
+    function Bingo(){
+      c = CheckBingo()
+      Rstr = document.getElementById('name').value
+      if (c[0]){
+        Rstr += " got a bingo "
+        if (c[1][0]){
+          Rstr += "diagonally "
+          if (c[1][1]){Rstr += "/"}
+          else {Rstr += "\\"}
+        }
+        else {
+          if (c[1][1]){Rstr += "in column " + (c[1][2]+1)}
+          else {Rstr += "in row " + (c[1][2]+1)}
+        }
+      }
+      else {Rstr += " tried to shout bingo without having a bingo. Shameful!"}
+      console.log(Rstr);
+      socket.emit("BINGO",Rstr);
+    }
+    
+    socket.on("NUMBER",(nBA)=>{
+      nBeenAlready = ['FREE'].concat(nBA);
+      logN.innerHTML = ''
+      for (var i=0;i<nBA.length;i++){
+        logN.innerHTML += nBA[i] + '; ';
+      }
+      lastN.innerHTML = String(nBA[nBA.length-1]);
+    })
+    
+    socket.on("BINGO",(Rstr)=>{
+      console.log("NUMBER 2: " + Rstr)
+      document.getElementById('logB').innerHTML += "<br>" + Rstr + "<br>";
+    })
+    
+    socket.on('DONE',()=>{
+      document.body.innerHTML = "THE GAME HAS FINISHED.<br><br>WAIT FOR HOST TO RUN GAME AGAIN.<br><br>REFRESH FROM TIME TO TIME IF YOU'RE SUPPOSED TO PLAY NOW.";
+    })
+  </script>
+</body>
+</html>
