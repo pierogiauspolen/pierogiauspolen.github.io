@@ -37,7 +37,7 @@ function reset(){
   impostor = Math.floor(Math.random() * lgraczy);
   odp = lista[Math.floor(Math.random() * lista.length)];
   kolejka = 0;
-  rozp.innerHTML = "ROZPOCZYNA GRACZ NR " + rozpgracz.toString();
+  rozp.innerHTML = "ROZPOCZYNA GRACZ NR " + (rozpgracz+1).toString();
   if (pok) {sh();}
 }
 
