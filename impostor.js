@@ -13,7 +13,7 @@ var kolejka = 0;
 
 const lista = ["JABŁKO","GRUSZKA","BANAN","JAJKO","LUPA","FOTEL","KUPA","SKARPETY"];
 
-function sh()
+function sh(){
   if (pok){
     shbutton.innerHTML = "SCHOWAJ";
     if (kolejka == impostor){
@@ -32,7 +32,6 @@ function sh()
 
 function reset(){
   kolej.innerHTML = "GRACZ NR 1";
-  haslo.innerHTML = "";
   lgraczy = ile.value;
   rozpgracz = Math.floor(Math.random() * lgraczy);
   impostor = Math.floor(Math.random() * lgraczy);
@@ -47,3 +46,5 @@ function next(){
   kolejka = (kolejka + 1)%lgraczy;
   kolej.innerHTML = (kolejka+1).toString();
 }
+
+reset();
