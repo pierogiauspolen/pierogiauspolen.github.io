@@ -14,7 +14,7 @@ var kolejka = 0;
 const lista = ["JABŁKO","GRUSZKA","BANAN","JAJKO","LUPA","FOTEL","KUPA","SKARPETY"];
 
 function sh(){
-  if (pok){
+  if (!pok){
     shbutton.innerHTML = "SCHOWAJ";
     if (kolejka == impostor){
       haslo.innerHTML = "JESTEŚ IMPOSTOREM";
@@ -44,7 +44,7 @@ function reset(){
 function next(){
   if (pok) {sh();}
   kolejka = (kolejka + 1)%lgraczy;
-  kolej.innerHTML = (kolejka+1).toString();
+  kolej.innerHTML = "GRACZ NR " + (kolejka+1).toString();
 }
 
 reset();
