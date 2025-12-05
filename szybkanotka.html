@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family : Arial;
+      line-height : 1.5;
+      font-size : 15px;
+      <!--width : 500px;-->
+    }
+    h2 {
+      font-size : 25px;
+    }
+    h3 {
+      font-size : 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Zadanie 33.</h2>
+  <img src="szklankiobjdranka.png" width="100%"></img>
+  <hr>
+  <p>Z pierwszego walca wynika, że \( V = 3 \pi H \). Promieniem podstawy walca jest \(r\), gdzie \(\pi r^2 = 3 \pi\). Zatem \(r = \sqrt{3}\).</p> <p>W drugim walcu, objętość ta jest objętością figury, która wygląda jak stożek, ale w podstawie zamiast okręgu ma elipsę. Wzór na objętość stożka, ostrosłupa oraz innych brył składających się z podstawy połączonej do jakiegoś pojedynczego punktu poza nią wynosi \[ V = \frac{1}{3} P_p H \] W naszym przypadku \(P_p = \pi a b\), gdzie \(a\) to jest "najdłuższy promień" (połowa \(|CD|\)), a \(b\) to "najkrótszy promień" (połowa "średnicy" przód-tył). (Wzór na pole elipsy) Więc \(b = r = \sqrt{3}\), bo nic się nie zmieniło w wymiarze przód-tył. \[|AC| = 2r = 2 \sqrt{3}\] \[H = |AC| \sin \alpha = 2 \sqrt{3} \sin \alpha \] \[2r = 2 \sqrt{3} = |CD| \cos \alpha \] \[ |CD| = \frac{2 \sqrt{3}}{\cos \alpha}\] \[ V_2 = \frac{1}{3} \pi \cdot \frac{|CD|}{2} \cdot \sqrt{3} \cdot H \] \[ \frac{\pi}{3} \cdot \frac{\sqrt{3}}{\cos \alpha} \cdot \sqrt{3} \cdot H = 3 \pi H\] \[ \frac{ \pi H }{\cos \alpha} = 3 \pi H\] \[ \cos \alpha = \frac{1}{3} \] Z jedynki trygonometrycznej: \[ \sin \alpha = \frac{2 \sqrt{2}}{3}\] \[H = 2 \sqrt{3} \sin \alpha = \frac{4}{3} \sqrt{6}\] \[V = 3 \pi \cdot \frac{4}{3} \sqrt{6} = 4 \pi \sqrt{6}\] 
+  </body>
+</html>
