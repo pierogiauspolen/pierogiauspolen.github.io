@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latin conjugation tables</title>
+  <style>
+    body {
+      background-color : #101010;
+      color : #ffffff;
+      text-align : center;
+      font-family : Arial;
+    }
+    table, th, td {
+      border : 1px #ffffff solid;
+    }
+    .lefthead {
+      font-weight : bold;
+      writing-mode : vertical-lr;
+      text-orientation : sideways;
+      <!--height : 100px;-->
+      padding-left : 2px;
+      padding-right : 2px;
+    }
+    .tense {
+      font-weight : bold;
+      height : 50px;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="navigator.clipboard.writeText('̄');" style="position : absolute; height : 30px; right : 5%;">COPY MACRON</button>
+  <h1> Automatic conjugation table filler</h1>
+  <h2>Will not work for any irregularities and might not show all correct forms, only some</h2>
+  <div style="width:100%; display : grid;">
+    <label for="R" style="grid-row : 1; grid-column : 1;">Root</label>
+    <center><input id="R" style="width:90%; grid-row : 2; grid-column : 1;"></center>
+    <label for="PR" style="grid-row : 1; grid-column : 2;">Perfect Root</label>
+    <center><input id="PR" style="width:90%; grid-row : 2; grid-column : 2;"></center>
+    <label for="SR" style="grid-row : 1; grid-column : 3;">Supine Root</label>
+    <center><input id="SR" style="width:90%; grid-row : 2; grid-column : 3;"></center>
+    <button onclick="conj();" style = "grid-row : 3; grid-column: 2; position : relative; top : 5px;">CONJUGATE</button>
+  </div>
+  <br>
+  <table id="table" style="position: sticky; border : 1px #ffffff solid; align : center; width : 91%; left : 4%;">
+    <tr>
+        <th style="width : 13%" colspan=3>TENSE</th>
+        <th style="width : 13%">1S</th>
+        <th style="width : 13%">2S</th>
+        <th style="width : 13%">3S</th>
+        <th style="width : 13%">1P</th>
+        <th style="width : 13%">2P</th>
+        <th style="width : 13%">3P</th>
+    </tr>
+  </table>
+</body>
+<script src=latconj.js></script>
+</html>
