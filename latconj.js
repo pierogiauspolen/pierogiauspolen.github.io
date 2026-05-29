@@ -20,12 +20,12 @@ function blend(s1,s2){
   else if (s1 == ""){
     return s2.replace(/̄̆/g,"")
   }
-  else if (["s","t","d"].includes(s1.charAt(s1.length - 1)) && ["t","d"].includes(s2.charAt(0))){
-    if (s1.charAt(s1.length - 2) == "̄"){
-      return s1.substring(0,s1.length - 1) + "s" + s2.substring(1,s2.length)
+  else if (["s","t","d"].includes(s1.charAt(s1.length - 1)) && s2.charAt(0)=="t"){
+    if (['a','e','i','o','u','y'].includes(s1.charAt(s1.length - 2))){
+      return s1.substring(0,s1.length - 1) + "ss" + s2.substring(1,s2.length)
     }
     else {
-      return s1.substring(0,s1.length - 1) + "ss" + s2.substring(1,s2.length)
+      return s1.substring(0,s1.length - 1) + "s" + s2.substring(1,s2.length)
     }
   }
   else if (s2.charAt(0) == "-"){
